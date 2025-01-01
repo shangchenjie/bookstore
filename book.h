@@ -18,12 +18,12 @@ using std::ofstream;
 
 
 struct Book {
-    char ISBN[21];      // 假设 ISBN 最大长度为 19
-    char title[61];    // 假设标题最大长度为 99
-    char author[61];    // 假设作者最大长度为 49
-    char keywords[61]; // 假设关键词最大长度为 199
-    double price;       // 价格
-    int stock;          // 库存数量
+    char ISBN[21];
+    char title[61];
+    char author[61];
+    char keywords[61];
+    double price;
+    int stock;
 
     bool operator<(const Book& other) const {
         return std::string(ISBN) < std::string(other.ISBN); // 按 ISBN 排序
@@ -33,11 +33,11 @@ inline int compareISBN(const char* thisISBN,const char* otherISBN) {
     return strcmp(thisISBN, otherISBN);
 }
 struct ISBNHeadNode {
-    int id;           // 块 ID
-    int prev_head;    // 前一个块的 ID
-    int nex_head;     // 下一个块的 ID
-    int size;         // 块中书籍的数量
-    char minISBN[20]; // 块中最小 ISBN
+    int id;
+    int prev_head;
+    int nex_head;
+    int size;
+    char minISBN[20];
 };
 const int block_size = 128;
 const int sizeofP = sizeof(Book);

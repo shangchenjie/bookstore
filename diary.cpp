@@ -36,7 +36,6 @@ void diaryManager::printAdmindiarys(const std::string& adminID) const {
 void diaryManager::savediarysToFile() const {
     std::ofstream file(diaryFileName, std::ios::binary);
     if (!file.is_open()) {
-        std::cerr << "Failed to open diary file for writing.\n";
         return;
     }
 
@@ -52,10 +51,8 @@ void diaryManager::loaddiarysFromFile() {
     std::ifstream file(diaryFileName, std::ios::binary);
 
     if (!file.is_open()) {
-        std::cerr << "Diary file not found. Creating a new one.\n";
-        std::ofstream newFile(diaryFileName, std::ios::binary); // 创建空文件
+        std::ofstream newFile(diaryFileName, std::ios::binary);
         if (!newFile.is_open()) {
-            std::cerr << "Failed to create diary file.\n";
             return;
         }
         newFile.close();

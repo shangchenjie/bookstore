@@ -5,7 +5,6 @@ FinanceManager financeMgr("finance.txt");
 void FinanceManager::loadFromFile() {
     std::ifstream file(fileName);
     if (!file.is_open()) {
-        std::cerr << "Finance file not found. A new one will be created.\n";
         return;
     }
     priceChanges.clear();
@@ -21,7 +20,6 @@ void FinanceManager::loadFromFile() {
 void FinanceManager::saveToFile() {
     std::ofstream file(fileName);
     if (!file.is_open()) {
-        std::cerr << "Failed to open finance file for writing.\n";
         return;
     }
 
